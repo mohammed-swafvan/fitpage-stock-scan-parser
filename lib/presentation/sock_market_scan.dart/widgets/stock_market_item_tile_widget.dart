@@ -1,3 +1,4 @@
+import 'package:fitpage_stock_scan_parser/core/colors/custom_colors.dart';
 import 'package:fitpage_stock_scan_parser/presentation/scan_item/scan_item_screen.dart';
 import 'package:flutter/material.dart';
 
@@ -23,9 +24,9 @@ class StockMarketItemTileWidget extends StatelessWidget {
           children: [
             Text(
               data['name'],
-              style: const TextStyle(
+              style: TextStyle(
                 fontSize: 18,
-                color: Colors.white,
+                color: CustomColors.primaryColor,
                 fontWeight: FontWeight.w600,
               ),
             ),
@@ -33,7 +34,7 @@ class StockMarketItemTileWidget extends StatelessWidget {
               data['tag'],
               style: TextStyle(
                 fontSize: 12,
-                color: data['color'] == 'green' ? Colors.green : Colors.red,
+                color: data['color'] == 'green' ? CustomColors.succesColor : CustomColors.dangerColor,
                 fontWeight: FontWeight.w600,
               ),
             ),

@@ -1,7 +1,8 @@
-import 'package:fitpage_stock_scan_parser/presentation/infrastructure/api_service.dart';
+import 'package:fitpage_stock_scan_parser/core/colors/custom_colors.dart';
+import 'package:fitpage_stock_scan_parser/core/contance/constant.dart';
+import 'package:fitpage_stock_scan_parser/infrastructure/api_service.dart';
 import 'package:fitpage_stock_scan_parser/presentation/sock_market_scan.dart/widgets/stock_market_item_tile_widget.dart';
 import 'package:flutter/material.dart';
-import 'package:dotted_line/dotted_line.dart';
 
 class StockMarketScanScreen extends StatelessWidget {
   const StockMarketScanScreen({super.key});
@@ -20,8 +21,8 @@ class StockMarketScanScreen extends StatelessWidget {
                 child: Container(
                   margin: const EdgeInsets.symmetric(horizontal: 12),
                   padding: const EdgeInsets.symmetric(horizontal: 12).copyWith(bottom: 24),
-                  decoration: const BoxDecoration(
-                    color: Colors.black,
+                  decoration: BoxDecoration(
+                    color: CustomColors.secondaryColor,
                   ),
                   child: ListView.separated(
                     shrinkWrap: true,
@@ -29,7 +30,7 @@ class StockMarketScanScreen extends StatelessWidget {
                       final Map<String, dynamic> data = snapshot.data![index];
                       return StockMarketItemTileWidget(data: data);
                     },
-                    separatorBuilder: (context, index) => builDottedLine(),
+                    separatorBuilder: (context, index) => Constant.builDottedLine(),
                     itemCount: snapshot.data!.length,
                   ),
                 ),
@@ -56,17 +57,3 @@ class StockMarketScanScreen extends StatelessWidget {
     );
   }
 }
-
-Widget builDottedLine() => const Padding(
-      padding: EdgeInsets.symmetric(vertical: 14),
-      child: Center(
-        child: DottedLine(
-          direction: Axis.horizontal,
-          dashColor: Colors.white,
-          dashLength: 2,
-          lineThickness: 2,
-          dashGapLength: 2,
-          dashRadius: 2,
-        ),
-      ),
-    );

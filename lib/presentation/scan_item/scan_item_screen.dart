@@ -1,3 +1,5 @@
+import 'package:fitpage_stock_scan_parser/core/colors/custom_colors.dart';
+import 'package:fitpage_stock_scan_parser/core/contance/constant.dart';
 import 'package:fitpage_stock_scan_parser/presentation/scan_item/widgets/proccess_string_widget.dart';
 import 'package:flutter/material.dart';
 
@@ -8,7 +10,6 @@ class ScanItemScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final double screenHeight = MediaQuery.of(context).size.height;
-    print(data['criteria'].length);
     return Scaffold(
       body: SafeArea(
         child: Container(
@@ -39,7 +40,7 @@ class ScanItemScreen extends StatelessWidget {
                 child: Center(
                   child: Container(
                     padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 12),
-                    color: Colors.black,
+                    color: CustomColors.secondaryColor,
                     height: screenHeight / 2,
                     width: double.infinity,
                     child: Column(
@@ -48,15 +49,15 @@ class ScanItemScreen extends StatelessWidget {
                         Container(
                           padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 14),
                           width: double.infinity,
-                          color: Colors.blue.withOpacity(0.4),
+                          color: CustomColors.headingBackgroundColor,
                           child: Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                               Text(
                                 data['name'],
-                                style: const TextStyle(
+                                style: TextStyle(
                                   fontSize: 18,
-                                  color: Colors.white,
+                                  color: CustomColors.primaryColor,
                                   fontWeight: FontWeight.w600,
                                 ),
                               ),
@@ -64,14 +65,14 @@ class ScanItemScreen extends StatelessWidget {
                                 data['tag'],
                                 style: TextStyle(
                                   fontSize: 12,
-                                  color: data['color'] == 'green' ? Colors.green : Colors.red,
+                                  color: data['color'] == 'green' ? CustomColors.succesColor : CustomColors.dangerColor,
                                   fontWeight: FontWeight.w600,
                                 ),
                               ),
                             ],
                           ),
                         ),
-                        const SizedBox(height: 16),
+                        Constant.height15,
                         ListView.separated(
                           padding: const EdgeInsets.symmetric(horizontal: 12),
                           shrinkWrap: true,
@@ -80,25 +81,26 @@ class ScanItemScreen extends StatelessWidget {
                             return type == 'plain_text'
                                 ? Text(
                                     "${data['criteria'][index]['text']}",
-                                    style: const TextStyle(
+                                    style: TextStyle(
                                       fontSize: 18,
-                                      color: Colors.white,
+                                      color: CustomColors.primaryColor,
                                       fontWeight: FontWeight.w600,
                                     ),
                                   )
                                 : ProccessStringWidget(
+                                    title: data['name'],
                                     text: data['criteria'][index]['text'],
                                     creteriaListItem: data['criteria'][index],
                                   );
                           },
                           separatorBuilder: (context, index) {
-                            return const Padding(
-                              padding: EdgeInsets.symmetric(vertical: 12),
+                            return Padding(
+                              padding: const EdgeInsets.symmetric(vertical: 12),
                               child: Text(
                                 "and",
                                 style: TextStyle(
                                   fontSize: 10,
-                                  color: Colors.white,
+                                  color: CustomColors.primaryColor,
                                   fontWeight: FontWeight.w600,
                                 ),
                               ),
