@@ -14,7 +14,7 @@ class StockMarketScanScreen extends StatelessWidget {
         width: double.infinity,
         height: double.infinity,
         child: FutureBuilder<List>(
-          future: ApiService.fetchData(),
+          future: ApiService().fetchData(),
           builder: (context, snapshot) {
             if (snapshot.hasData) {
               return Center(
