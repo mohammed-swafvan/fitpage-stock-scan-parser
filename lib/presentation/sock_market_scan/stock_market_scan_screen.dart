@@ -1,7 +1,7 @@
 import 'package:fitpage_stock_scan_parser/core/colors/custom_colors.dart';
 import 'package:fitpage_stock_scan_parser/core/contance/constant.dart';
 import 'package:fitpage_stock_scan_parser/infrastructure/api_service.dart';
-import 'package:fitpage_stock_scan_parser/presentation/sock_market_scan.dart/widgets/stock_market_item_tile_widget.dart';
+import 'package:fitpage_stock_scan_parser/presentation/sock_market_scan/widgets/stock_market_item_tile_widget.dart';
 import 'package:flutter/material.dart';
 
 class StockMarketScanScreen extends StatelessWidget {
